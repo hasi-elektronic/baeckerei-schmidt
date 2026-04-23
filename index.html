@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bäckerei Schmidt – Handwerkliche Backkunst in Vaihingen/Enz</title>
+  <meta name="description" content="Bäckerei Schmidt in Vaihingen/Enz – Frisches Brot, Kuchen & Torten seit Generationen. Täglich frisch gebacken mit Liebe und regionalen Zutaten.">
+  <meta property="og:title" content="Bäckerei Schmidt – Handwerkliche Backkunst">
+  <meta property="og:description" content="Täglich frisch gebacken in Vaihingen/Enz. Brot, Kuchen, Torten und mehr.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://baeckerei-schmidt.pages.dev">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "Bäckerei Schmidt",
+    "image": "",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Marktstraße 12",
+      "addressLocality": "Vaihingen an der Enz",
+      "postalCode": "71665",
+      "addressCountry": "DE"
+    },
+    "telephone": "+4970421234567",
+    "email": "info@baeckerei-schmidt.de",
+    "openingHours": ["Mo-Fr 06:00-18:00", "Sa 06:00-13:00"],
+    "url": "https://baeckerei-schmidt.pages.dev",
+    "servesCuisine": "Bakery",
+    "priceRange": "€"
+  }
+  </script>
+
+  <style>
+    :root {
+      --cream: #faf0e6;
+      --wheat: #f5e6c8;
+      --amber: #c8773a;
+      --amber-dark: #a05e28;
+      --terra: #c85a4e;
+      --terra-light: #e87060;
+      --brown: #5c3d2e;
+      --brown-light: #7a5240;
+      --text: #2d1a0e;
+      --text-muted: #7a5240;
+      --white: #fffef8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(250, 240, 230, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200, 119, 58, 0.15);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--brown);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--amber); font-style: italic; }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--brown-light);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--amber); }
+
+    .nav-cta {
+      background: var(--amber);
+      color: white !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 100px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--amber-dark) !important; }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 100px 5% 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 70% 40%, rgba(200,119,58,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 20% 80%, rgba(200,90,78,0.08) 0%, transparent 55%),
+        var(--cream);
+    }
+
+    /* Decorative wheat grain pattern */
+    .hero-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8773a' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.6;
+    }
+
+    .hero-content {
+      position: relative; z-index: 1;
+      max-width: 600px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.8s ease 0.1s forwards;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 24px; height: 2px;
+      background: var(--amber);
+      display: block;
+    }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--brown);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--amber);
+      font-weight: 300;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 460px;
+    }
+
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--amber);
+      color: white;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.9rem; font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.85rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--amber-dark); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--brown);
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.9rem; font-weight: 500;
+      text-decoration: none;
+      padding: 0.85rem 1.5rem;
+      border-radius: 100px;
+      border: 1.5px solid rgba(92,61,46,0.25);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--amber); color: var(--amber); }
+
+    /* Big visual element */
+    .hero-visual {
+      position: absolute;
+      right: -2%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: min(45vw, 520px);
+      height: min(45vw, 520px);
+      opacity: 0;
+      animation: fadeIn 1s ease 0.5s forwards;
+    }
+
+    .hero-circle {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--wheat) 0%, rgba(200,119,58,0.25) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: clamp(6rem, 15vw, 14rem);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-circle::after {
+      content: '';
+      position: absolute; inset: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(200,119,58,0.2);
+    }
+
+    @media (max-width: 860px) {
+      .hero-visual { display: none; }
+      .hero { min-height: auto; padding-top: 120px; padding-bottom: 80px; }
+    }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      background: var(--brown);
+      padding: 1.2rem 5%;
+      display: flex; gap: 2.5rem; justify-content: center; align-items: center; flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+    .trust-icon { font-size: 1rem; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 90px 5%; }
+
+    .section-label {
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.75rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .section-label::before { content: ''; width: 20px; height: 2px; background: var(--amber); display: block; }
+
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--brown);
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+
+    .section-subtitle {
+      font-size: 1rem; font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── LEISTUNGEN ── */
+    #leistungen { background: var(--white); }
+
+    .leistungen-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5px;
+      background: rgba(200,119,58,0.1);
+      border: 1.5px solid rgba(200,119,58,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .leistung-card {
+      background: var(--white);
+      padding: 2rem;
+      transition: background 0.2s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .leistung-card.visible { animation: fadeUp 0.5s ease forwards; }
+    .leistung-card:hover { background: var(--cream); }
+
+    .leistung-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .leistung-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem; font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .leistung-card p {
+      font-size: 0.88rem; font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── ÜBER UNS ── */
+    #ueber {
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 760px) {
+      #ueber { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    .ueber-image-wrap {
+      position: relative;
+    }
+
+    .ueber-placeholder {
+      width: 100%; aspect-ratio: 4/5;
+      background: linear-gradient(145deg, var(--wheat), rgba(200,119,58,0.2));
+      border-radius: 12px 60px 12px 60px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 1rem;
+      font-size: 5rem;
+    }
+
+    .ueber-badge {
+      position: absolute;
+      bottom: -1.5rem; right: -1.5rem;
+      background: var(--amber);
+      color: white;
+      font-family: 'Fraunces', serif;
+      font-size: 1rem;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(200,119,58,0.35);
+    }
+    .ueber-badge strong { display: block; font-size: 2rem; font-weight: 700; line-height: 1; }
+
+    .ueber-text p {
+      font-size: 0.95rem; font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+
+    .ueber-features {
+      margin-top: 2rem;
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .ueber-feature {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-size: 0.9rem; font-weight: 500;
+      color: var(--brown);
+    }
+    .ueber-feature::before {
+      content: '✓';
+      width: 22px; height: 22px;
+      background: rgba(200,119,58,0.15);
+      color: var(--amber);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── VERTRAUEN ── */
+    #vertrauen {
+      background: var(--brown);
+      text-align: center;
+    }
+    #vertrauen .section-label { justify-content: center; color: rgba(245,230,200,0.7); }
+    #vertrauen .section-label::before { background: rgba(245,230,200,0.4); }
+    #vertrauen .section-title { color: var(--wheat); }
+    #vertrauen .section-subtitle { color: rgba(245,230,200,0.65); margin: 0 auto 3rem; }
+
+    .vertrauen-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .vertrauen-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    .vertrauen-card.visible { animation: scaleIn 0.4s ease forwards; }
+
+    .vertrauen-num {
+      font-family: 'Fraunces', serif;
+      font-size: 2.8rem; font-weight: 700;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .vertrauen-label {
+      font-size: 0.82rem; font-weight: 500;
+      color: rgba(245,230,200,0.7);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── KONTAKT ── */
+    #kontakt { background: var(--white); }
+
+    .kontakt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    @media (max-width: 760px) {
+      .kontakt-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    .kontakt-info h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.4rem; font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 1.5rem;
+    }
+    .kontakt-detail {
+      display: flex; align-items: flex-start; gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .kontakt-detail-icon {
+      font-size: 1.2rem;
+      width: 36px; height: 36px;
+      background: rgba(200,119,58,0.12);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .kontakt-detail-text strong {
+      display: block;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.2rem;
+    }
+    .kontakt-detail-text span {
+      font-size: 0.9rem; font-weight: 400;
+      color: var(--brown-light);
+    }
+
+    .oeffnungszeiten {
+      margin-top: 2rem;
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .oeffnungszeiten h4 {
+      font-family: 'Fraunces', serif;
+      font-size: 1rem; font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 1rem;
+    }
+    .oz-row {
+      display: flex; justify-content: space-between;
+      font-size: 0.85rem; padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(200,119,58,0.1);
+      color: var(--text-muted);
+    }
+    .oz-row:last-child { border: none; }
+    .oz-row span:first-child { font-weight: 500; color: var(--brown); }
+
+    .form-wrap {
+      background: var(--cream);
+      border-radius: 20px;
+      padding: 2.5rem;
+    }
+    .form-wrap h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem; font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+
+    .form-group { margin-bottom: 1rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--brown-light);
+      margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: white;
+      border: 1.5px solid rgba(200,119,58,0.2);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--amber); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--amber);
+      color: white;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.95rem; font-weight: 600;
+      padding: 0.9rem;
+      border-radius: 100px;
+      border: none; cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: var(--amber-dark); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brown);
+      padding: 3rem 5% 2rem;
+    }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 2rem;
+    }
+    .footer-brand .nav-logo { color: var(--wheat); font-size: 1.4rem; }
+    .footer-brand p {
+      font-size: 0.82rem; color: rgba(245,230,200,0.5);
+      margin-top: 0.5rem; max-width: 220px; line-height: 1.6;
+    }
+    .footer-links {
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: rgba(245,230,200,0.55);
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--wheat); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy { font-size: 0.78rem; color: rgba(245,230,200,0.35); }
+
+    /* ── DEMO BADGE ── */
+    .demo-badge {
+      position: fixed;
+      bottom: 1.5rem; right: 1.5rem;
+      background: rgba(44,27,14,0.92);
+      backdrop-filter: blur(8px);
+      color: white;
+      font-size: 0.75rem; font-weight: 500;
+      padding: 0.6rem 1rem;
+      border-radius: 100px;
+      z-index: 999;
+      display: flex; align-items: center; gap: 0.4rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .demo-badge a {
+      color: var(--amber);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .demo-badge a:hover { text-decoration: underline; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    @keyframes scaleIn {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Bäckerei <span>Schmidt</span></a>
+    <ul class="nav-links">
+      <li><a href="#leistungen">Angebot</a></li>
+      <li><a href="#ueber">Über uns</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="tel:+4970421234567" class="nav-cta">📞 Anrufen</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Handwerkliche Backkunst · Vaihingen/Enz</p>
+      <h1>Frisches Brot,<br><em>täglich</em> gebacken</h1>
+      <p>Seit Generationen steht Bäckerei Schmidt für ehrliches Handwerk, regionale Zutaten und den Duft von frisch gebackenem Brot — jeden Morgen ab 6 Uhr.</p>
+      <div class="hero-actions">
+        <a href="#leistungen" class="btn-primary">🥖 Unser Angebot</a>
+        <a href="#kontakt" class="btn-secondary">Kontakt aufnehmen →</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-circle">🥐</div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="trust-item"><span class="trust-icon">🌾</span> Regionale Zutaten</div>
+    <div class="trust-item"><span class="trust-icon">⏰</span> Täglich frisch ab 6:00 Uhr</div>
+    <div class="trust-item"><span class="trust-icon">🤝</span> Familienbetrieb seit 1985</div>
+    <div class="trust-item"><span class="trust-icon">🏆</span> Meisterbetrieb</div>
+    <div class="trust-item"><span class="trust-icon">📍</span> Vaihingen an der Enz</div>
+  </div>
+
+  <!-- LEISTUNGEN -->
+  <section id="leistungen">
+    <p class="section-label">Was wir bieten</p>
+    <h2 class="section-title">Frisch aus unserer Backstube</h2>
+    <p class="section-subtitle">Von knusprigen Broten bis zu festlichen Torten — alles handgemacht mit viel Liebe und regionalen Zutaten aus der Region.</p>
+
+    <div class="leistungen-grid">
+      <div class="leistung-card">
+        <span class="leistung-icon">🍞</span>
+        <h3>Brot & Brötchen</h3>
+        <p>Täglich frisch gebacken — Sauerteig, Dinkel, Vollkorn und klassisches Weißbrot. Knusprig, aromatisch, unvergleichlich.</p>
+      </div>
+      <div class="leistung-card">
+        <span class="leistung-icon">🎂</span>
+        <h3>Kuchen & Torten</h3>
+        <p>Hausgemachte Spezialitäten für jeden Anlass — Käsekuchen, Obsttarten, Schwarzwälder und saisonale Highlights.</p>
+      </div>
+      <div class="leistung-card">
+        <span class="leistung-icon">💒</span>
+        <h3>Hochzeitstorten</h3>
+        <p>Individuelle Traumtorten für den schönsten Tag Ihres Lebens. Sonderanfertigung nach Ihren Wünschen, ab 4 Wochen vorher.</p>
+      </div>
+      <div class="leistung-card">
+        <span class="leistung-icon">☕</span>
+        <h3>Snacks & Kaffee</h3>
+        <p>Belegte Brötchen, Laugengebäck, frische Suppen und aromatischer Kaffee — perfekt für die Mittagspause.</p>
+      </div>
+      <div class="leistung-card">
+        <span class="leistung-icon">🎉</span>
+        <h3>Party-Service</h3>
+        <p>Catering für Firmenveranstaltungen, Geburtstage und Feiern. Fingerfood, Platten und frische Backwaren nach Maß.</p>
+      </div>
+      <div class="leistung-card">
+        <span class="leistung-icon">📱</span>
+        <h3>Vorbestellung</h3>
+        <p>Telefonisch oder per WhatsApp vorbestellen — wir halten Ihre Lieblingsprodukte frisch für Sie bereit.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÜBER UNS -->
+  <section id="ueber">
+    <div class="ueber-image-wrap reveal">
+      <div class="ueber-placeholder">
+        <span>🥖</span>
+        <p style="font-family:'Fraunces',serif;color:var(--brown-light);font-size:1rem;font-style:italic;">Ihre Bäckerei seit 1985</p>
+      </div>
+      <div class="ueber-badge">
+        <strong>40+</strong>
+        Jahre Erfahrung
+      </div>
+    </div>
+    <div class="ueber-text reveal">
+      <p class="section-label">Unsere Geschichte</p>
+      <h2 class="section-title">Handwerk mit Herzblut</h2>
+      <p>Was 1985 als kleines Familienunternehmen in Vaihingen an der Enz begann, ist heute eine feste Institution im Stadtbild. Bäckermeister Hans Schmidt und sein Team stehen täglich vor der Dämmerung auf — nicht weil sie müssen, sondern weil sie es lieben.</p>
+      <p>Wir glauben, dass gutes Brot Zeit braucht. Unsere Teige reifen über Nacht, unsere Brote backen im Steinofen, und unsere Rezepte werden von Generation zu Generation weitergegeben.</p>
+      <div class="ueber-features">
+        <div class="ueber-feature">Regionale Zutaten aus der Region Vaihingen/Enz</div>
+        <div class="ueber-feature">Keine künstlichen Zusatzstoffe</div>
+        <div class="ueber-feature">Traditionelle Backverfahren seit 40 Jahren</div>
+        <div class="ueber-feature">Persönliche Beratung und Bestellung</div>
+      </div>
+      <div style="margin-top:2rem;">
+        <a href="tel:+4970421234567" class="btn-primary">📞 07042 / 123 456</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERTRAUEN -->
+  <section id="vertrauen">
+    <p class="section-label">Zahlen & Fakten</p>
+    <h2 class="section-title" style="color:var(--wheat)">Warum Bäckerei Schmidt?</h2>
+    <p class="section-subtitle">Vertrauen entsteht nicht über Nacht — es wird täglich neu verdient.</p>
+    <div class="vertrauen-grid">
+      <div class="vertrauen-card">
+        <div class="vertrauen-num">40+</div>
+        <div class="vertrauen-label">Jahre Erfahrung</div>
+      </div>
+      <div class="vertrauen-card">
+        <div class="vertrauen-num">20+</div>
+        <div class="vertrauen-label">Brotsorten täglich</div>
+      </div>
+      <div class="vertrauen-card">
+        <div class="vertrauen-num">6:00</div>
+        <div class="vertrauen-label">Uhr – täglich frisch</div>
+      </div>
+      <div class="vertrauen-card">
+        <div class="vertrauen-num">100%</div>
+        <div class="vertrauen-label">Handwerklich</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt">
+    <p class="section-label">So erreichen Sie uns</p>
+    <h2 class="section-title">Kontakt & Bestellung</h2>
+    <p class="section-subtitle">Fragen, Vorbestellungen oder spezielle Wünsche? Wir freuen uns auf Ihre Nachricht!</p>
+
+    <div class="kontakt-grid">
+      <div class="kontakt-info">
+        <h3>Besuchen Sie uns</h3>
+        <div class="kontakt-detail">
+          <div class="kontakt-detail-icon">📍</div>
+          <div class="kontakt-detail-text">
+            <strong>Adresse</strong>
+            <span>Marktstraße 12<br>71665 Vaihingen an der Enz</span>
+          </div>
+        </div>
+        <div class="kontakt-detail">
+          <div class="kontakt-detail-icon">📞</div>
+          <div class="kontakt-detail-text">
+            <strong>Telefon</strong>
+            <span>07042 / 123 456</span>
+          </div>
+        </div>
+        <div class="kontakt-detail">
+          <div class="kontakt-detail-icon">✉️</div>
+          <div class="kontakt-detail-text">
+            <strong>E-Mail</strong>
+            <span>info@baeckerei-schmidt.de</span>
+          </div>
+        </div>
+        <div class="oeffnungszeiten">
+          <h4>Öffnungszeiten</h4>
+          <div class="oz-row"><span>Mo – Fr</span><span>06:00 – 18:00 Uhr</span></div>
+          <div class="oz-row"><span>Samstag</span><span>06:00 – 13:00 Uhr</span></div>
+          <div class="oz-row"><span>Sonntag</span><span>Geschlossen</span></div>
+        </div>
+      </div>
+
+      <div class="form-wrap">
+        <h3>Nachricht schicken</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Vorname</label>
+            <input type="text" placeholder="Max">
+          </div>
+          <div class="form-group">
+            <label>Nachname</label>
+            <input type="text" placeholder="Mustermann">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>E-Mail</label>
+          <input type="email" placeholder="max@beispiel.de">
+        </div>
+        <div class="form-group">
+          <label>Betreff</label>
+          <select>
+            <option>Allgemeine Anfrage</option>
+            <option>Vorbestellung</option>
+            <option>Hochzeitstorte</option>
+            <option>Party-Service / Catering</option>
+            <option>Sonstiges</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Nachricht</label>
+          <textarea placeholder="Wie können wir Ihnen helfen?"></textarea>
+        </div>
+        <button class="form-submit">Nachricht senden →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">Bäckerei <span>Schmidt</span></a>
+        <p>Handwerkliche Backkunst seit 1985. Täglich frisch für Vaihingen/Enz.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#leistungen">Angebot</a>
+        <a href="#ueber">Über uns</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Bäckerei Schmidt · Marktstraße 12 · 71665 Vaihingen an der Enz</p>
+    </div>
+  </footer>
+
+  <!-- DEMO BADGE -->
+  <div class="demo-badge">
+    Demo · <a href="https://hasi-elektronic.de" target="_blank">Hasi Elektronic</a> · ab 290 €
+  </div>
+
+  <script>
+    // Intersection Observer for scroll reveals
+    const revealEls = document.querySelectorAll('.reveal, .leistung-card, .vertrauen-card');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const delay = el.dataset.delay || (Array.from(el.parentNode.children).indexOf(el) * 100);
+          setTimeout(() => el.classList.add('visible'), delay);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Form submit demo
+    document.querySelector('.form-submit').addEventListener('click', () => {
+      alert('Danke für Ihre Nachricht! Wir melden uns bald.\n\n(Demo-Version — kein echtes Formular)');
+    });
+  </script>
+</body>
+</html>
