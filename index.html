@@ -11,9 +11,6 @@
   <meta property="og:url" content="https://baeckerei-schmidt.pages.dev">
   <meta property="og:image" content="images/hero-brot.jpg">
   <link rel="icon" href="images/marke.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,650;1,9..144,380;1,9..144,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <script type="application/ld+json">
   {
@@ -54,7 +51,7 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="#heute">Heute</a></li>
         <li><a href="sortiment.html">Sortiment</a></li>
-        <li><a href="#geschichte">Geschichte</a></li>
+        <li><a href="#ablauf">Vorbestellung</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
         <li><a class="nav-cta" href="tel:+4970421234567">07042 123 456</a></li>
       </ul>
@@ -193,6 +190,34 @@
       </div>
     </section>
 
+    <section class="section section--follow" id="ablauf">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">So läuft’s</p>
+          <h2>Klare Regeln, damit das Brot pünktlich da ist.</h2>
+          <p>Kein Online-Shop, keine App, keine Warteschlange im Netz. Wer bestellt, spricht mit uns.</p>
+        </div>
+        <div class="rules-grid">
+          <article class="rule">
+            <strong>Brot bis 16 Uhr</strong>
+            <p>Laibe und Seelen bis 16 Uhr am Vortag vorbestellen – telefonisch oder per WhatsApp.</p>
+          </article>
+          <article class="rule">
+            <strong>Platten in 48 Stunden</strong>
+            <p>Firmenfrühstück und belegte Seelen ab zwei Tagen vorher. Abholung an der Theke.</p>
+          </article>
+          <article class="rule">
+            <strong>Torten in 4 Wochen</strong>
+            <p>Hochzeit und runde Geburtstage: Probeessen dienstags um 14 Uhr, nach Termin.</p>
+          </article>
+          <article class="rule">
+            <strong>Bar und Karte</strong>
+            <p>Bar immer, Girocard ab 5 €. Kein Apple Pay, kein Versand, eine Filiale.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="wedding">
       <div class="wrap">
         <p class="kicker">Für den einen Tag</p>
@@ -225,6 +250,33 @@
       </div>
     </section>
 
+    <section class="section section--follow" id="fragen">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Kurz gefragt</p>
+          <h2>Die Antworten, die an der Theke immer kommen.</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Gibt es glutenfreies Brot?</summary>
+            <p>Nein. Dinkel backen wir, eine getrennte glutenfreie Linie führen wir nicht – das Mehl fliegt in der Stube.</p>
+          </details>
+          <details>
+            <summary>Kann ich samstags ohne Vorbestellung Seelen kaufen?</summary>
+            <p>Ja, solange der Korb reicht. Für mehr als sechs Stück bitte bis Freitag 16 Uhr Bescheid geben.</p>
+          </details>
+          <details>
+            <summary>Dürfen Hunde mit rein?</summary>
+            <p>An der Tür anleinen. Im Verkaufsraum nicht – zu eng, zu viel Mehl auf dem Boden.</p>
+          </details>
+          <details>
+            <summary>Wo stelle ich das Auto hin?</summary>
+            <p>Marktplatz, zwei Stunden. Die Filiale liegt direkt an der Marktstraße, Eingang neben der Apotheke.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section class="section section--follow" id="kontakt">
       <div class="wrap">
         <div class="section-head">
@@ -239,6 +291,7 @@
               <div>
                 <strong>Adresse</strong>
                 <span>Marktstraße 12<br>71665 Vaihingen an der Enz</span>
+                <a class="map-link btn btn-ghost" href="https://maps.google.com/?q=Marktstraße+12+71665+Vaihingen+an+der+Enz" target="_blank" rel="noopener">Karte öffnen</a>
               </div>
             </div>
             <div class="detail">
@@ -259,7 +312,8 @@
               <h3>Öffnungszeiten</h3>
               <div class="hours-row"><span>Montag – Freitag</span><span>06:00 – 18:00</span></div>
               <div class="hours-row"><span>Samstag</span><span>06:00 – 13:00</span></div>
-              <div class="hours-row"><span>Sonntag</span><span>geschlossen</span></div>
+              <div class="hours-row"><span>Sonntag &amp; Feiertag</span><span>geschlossen</span></div>
+              <p class="note">Zahlung: Bar und Girocard ab 5 €. Parken: Marktplatz, 2 Stunden.</p>
             </div>
           </div>
 
@@ -280,6 +334,7 @@
             </label>
             <label>Nachricht<textarea name="nachricht" required placeholder="Wunschtermin, Stückzahl, Allergene…"></textarea></label>
             <button class="btn btn-primary" type="submit">Anfrage senden</button>
+            <p class="note">Rückruf werktags bis 17 Uhr. In der Demo geht die Nachricht nicht raus.</p>
           </form>
         </div>
       </div>
@@ -295,7 +350,7 @@
         </a>
         <div class="footer-links">
           <a href="sortiment.html">Sortiment</a>
-          <a href="#geschichte">Geschichte</a>
+          <a href="#ablauf">Vorbestellung</a>
           <a href="#kontakt">Kontakt</a>
           <a href="impressum.html">Impressum</a>
           <a href="datenschutz.html">Datenschutz</a>

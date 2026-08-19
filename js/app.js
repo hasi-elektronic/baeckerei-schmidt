@@ -1,16 +1,26 @@
 const nav = document.querySelector(".nav");
 const toggle = document.querySelector(".nav-toggle");
 
+if (nav) {
+  const onScroll = () => {
+    nav.classList.toggle("is-scrolled", window.scrollY > 12);
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+}
+
 if (toggle && nav) {
   toggle.addEventListener("click", () => {
     const open = nav.classList.toggle("is-open");
     toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Menü schließen" : "Menü öffnen");
   });
 
   nav.querySelectorAll(".nav-links a").forEach((link) => {
     link.addEventListener("click", () => {
       nav.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Menü öffnen");
     });
   });
 }
